@@ -12,7 +12,7 @@ public class SearchBarrTest extends TestBase {
     Items items = new Items();
     MainPage mainPage = new MainPage();
 
-    @DisplayName("Проверка пойсковой строки")
+    @DisplayName("Проверка поисковой строки")
     @Test
     void searchTest() {
         String title = "OZ.by — интернет-магазин. Книги, игры, косметика, товары для дома, творчества, подарки, продукты. Доставка по Беларуси.";
