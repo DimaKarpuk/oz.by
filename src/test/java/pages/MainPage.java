@@ -1,6 +1,5 @@
 package pages;
 
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +12,7 @@ public class MainPage extends BasePage {
     @FindBy(css = "[data-action = 'click->cookie-dialog#handleRejectClick']")
     private WebElement refuseCookie;
 
-    @FindBy(className = "digi-wrapper")
+    @FindBy(css = ".digi-products-grid.digi-products-grid_horde")
     private WebElement checkSearchList;
 
     public MainPage() {
@@ -33,6 +32,6 @@ public class MainPage extends BasePage {
     }
 
     public void checkSearchList(){
-        Assertions.assertFalse(checkSearchList.getText().isEmpty());
+        checkSearchList.isDisplayed();
     }
 }

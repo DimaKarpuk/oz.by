@@ -20,6 +20,7 @@ public class SearchBarrTest extends TestBase {
         mainPage.refuseCookieClick();
         Assertions.assertTrue(TestBase.driver.getTitle().equals(title));
         mainPage.setSearchBarr(items.getRandomItem());
-        //mainPage.checkSearchList();
+        mainPage.searchBarrPressEnter();
+        mainPage.checkSearchList();
     }
 }
