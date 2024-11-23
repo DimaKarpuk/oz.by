@@ -10,4 +10,4 @@ RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable 
 RUN apt-get update && apt-get install -y google-chrome-stable
 RUN wget -qO- https://dl.bintray.com/qameta/generic/io/qameta/allure/allure/2.13.6/allure-2.13.6.tgz | tar -xz -C /opt/
 ENV PATH="/opt/allure-2.13.6/bin:${PATH}"
-CMD ["./gradlew", "clean", "test", "allureReport"]
+CMD ["gradle", "clean", "test", "allureReport"]
