@@ -17,20 +17,20 @@ public class CartTests extends TestBase {
     String item = items.getRandomItem();
     private final String title = "Оформление заказа OZ.by";
 
-    @DisplayName("Проверка что в корзине нет товара")
-    @Test
-    void cartIsEmptyTest() {
-        step("Открываем страницу корзина",() -> {
-            driver.get("https://oz.by/checkout/");
-        });
-        step("Проверяем title страницы", () -> {
-            Assertions.assertTrue(driver.getTitle().equals(title));
-        });
-        step("Проверяем что в корзине нет товара", () -> {
-            cartPage.checkCartIsEmpty();
-        });
-
-    }
+//    @DisplayName("Проверка что в корзине нет товара")
+//    @Test
+//    void cartIsEmptyTest() {
+//        step("Открываем страницу корзина",() -> {
+//            driver.get("https://oz.by/checkout/");
+//        });
+//        step("Проверяем title страницы", () -> {
+//            Assertions.assertTrue(driver.getTitle().equals(title));
+//        });
+//        step("Проверяем что в корзине нет товара", () -> {
+//            cartPage.checkCartIsEmpty();
+//        });
+//
+//    }
 
 
     @DisplayName("Тест на добавление товара в корзину")

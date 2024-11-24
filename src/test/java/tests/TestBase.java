@@ -21,7 +21,7 @@ abstract public class TestBase {
     public static void setup() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
+       // options.addArguments("headless");
         options.addArguments("window-size=1400,800");
         options.addArguments("disable-gpu");
 
