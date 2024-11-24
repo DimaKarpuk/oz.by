@@ -1,23 +1,21 @@
-FROM jenkins/jenkins:2.479.1-jdk17
-USER root
-RUN apt-get update && apt-get install -y lsb-release
-RUN curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc \
-  https://download.docker.com/linux/debian/gpg
+# Используем базовый образ с предустановленным Gradle и JDK 11
+FROM gradle:6.7-jdk11
 
-# Chrome instalation
-RUN curl -LO  https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-RUN apt-get install -y ./google-chrome-stable_current_amd64.deb
-RUN rm google-chrome-stable_current_amd64.deb
-# Check chrome version
-RUN echo "Chrome: " && google-chrome --version
+# Создаем каталог /usr/src/app в контейнере
+RUN mkdir -p /usr/src/app
 
-RUN echo "deb [arch=$(dpkg --print-architecture) \
-  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
-  https://download.docker.com/linux/debian \
-  $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list
-RUN apt-get update && apt-get install -y docker-ce-cli
-USER jenkins
-RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
+# Задаем рабочую директорию
+WORKDIR /usr/src/app
+
+# Копируем все файлы в директорию
+COPY . /usr/src/app
+
+# Устанавливаем права на выполнение для gradlew
+RUN chmod +x ./gradlew
+
+# Выполняем команду сборки и тестирования с помощью Gradle
+CMD ["./gradlew", "clean", "test"]
+
 
 
 
