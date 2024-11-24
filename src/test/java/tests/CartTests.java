@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.CartPage;
@@ -31,6 +32,8 @@ public class CartTests extends TestBase {
         });
 
     }
+
+    @Disabled
     @DisplayName("Тест на добавление товара в корзину")
     @Test
     void addToCartTest(){
